@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:maxWidth="100dp"
+    android:layout_gravity="center"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <biz.borealis.numberpicker.NumberPicker
+        android:id="@+id/numberPicker"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:np_text_size_selected="40sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        app:np_max_number="9">
+
+    </biz.borealis.numberpicker.NumberPicker>
+</LinearLayout>

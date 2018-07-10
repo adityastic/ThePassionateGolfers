@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="2dp"
+    android:maxHeight="110dp"
+    android:minHeight="40dp"
+    android:background="@drawable/scoretempgrad"
+    android:orientation="horizontal">
+
+    <FrameLayout
+        android:id="@+id/image_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:paddingEnd="0dp"
+        android:paddingLeft="16dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/shortname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:maxLines="1"
+            android:maxLength="3"
+            android:textColor="#fff"
+            android:minHeight="40dp"
+            android:text="AKD"
+            android:textAppearance="@style/TextAppearanceList"
+            android:textSize="15sp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/score_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:layout_weight="1.0"
+        android:orientation="horizontal"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/handicap"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:textColor="#fff"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="5" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/scoredialog"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/score"
+                style="@style/TextAppearance.AppCompat.Subhead"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:inputType="number"
+                android:maxLength="2"
+                android:text="-"
+                app:backgroundTint="#fff"
+                android:textColor="#fff"
+                android:layout_marginRight="20sp"
+                android:maxLines="1" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

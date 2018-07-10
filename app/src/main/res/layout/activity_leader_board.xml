@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="com.aditya.tpg.behavior.AppBarLayoutBehavior">
+
+        <com.aditya.tpg.Views.SansFontCollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            app:collapsedTitleTextAppearance="@style/CollapsedTitleAppearance"
+            app:expandedTitleGravity="top"
+            app:expandedTitleMarginStart="16dp"
+            app:expandedTitleMarginTop="48dp"
+            app:expandedTitleTextAppearance="@style/ExpandedTitleAppearance"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar48"
+                app:navigationIcon="@drawable/tpg_24dp"
+                app:layout_collapseMode="pin" />
+
+        </com.aditya.tpg.Views.SansFontCollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8.0dip"
+                app:cardElevation="2.0dip"
+                app:cardUseCompatPadding="true">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:ignore="MissingPrefix">
+
+                    <LinearLayout
+                        android:id="@+id/card"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#000000"
+                        android:orientation="horizontal">
+
+
+                        <FrameLayout
+                            android:id="@+id/image_container"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0"
+                            android:paddingEnd="0dp"
+                            android:paddingLeft="16dp">
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/shortname"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:maxLines="1"
+                                android:minHeight="40dp"
+                                android:text="RANK"
+                                android:textAppearance="@style/TextAppearanceList"
+                                android:textColor="#fff"
+                                android:textSize="13sp" />
+
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:id="@+id/title_container"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginBottom="12dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_weight="1.0"
+                            android:orientation="horizontal"
+                            android:paddingEnd="16dp"
+                            android:paddingStart="16dp">
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/name"
+                                style="@style/TextAppearance.AppCompat.Subhead"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="2dp"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:layout_gravity="center"
+                                android:text="Full Name"
+                                android:textColor="#fff"
+                                android:textStyle="bold" />
+
+                            <android.support.v7.widget.AppCompatTextView
+                                android:id="@+id/handicap"
+                                style="@style/TextAppearance.AppCompat.Body1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:ellipsize="end"
+                                android:gravity="end|center"
+                                android:text="Score \n( Holes )"
+                                android:textColor="#fff"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </FrameLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg" />
+        </LinearLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</android.support.design.widget.CoordinatorLayout>

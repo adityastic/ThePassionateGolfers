@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        app:elevation="0dp"
+        app:layout_behavior="com.aditya.tpg.behavior.AppBarLayoutBehavior">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                style="@style/Toolbar48"
+                android:background="?colorPrimary"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/ic_close_white_24dp">
+
+            </android.support.v7.widget.Toolbar>
+
+            <com.miguelcatalan.materialsearchview.MaterialSearchView
+                android:id="@+id/search_view"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize" />
+        </FrameLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="fill_vertical"
+        android:background="@color/bg"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/subTitle"
+            style="@style/ExpandedTitleAppearance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:text="Select Members"
+            android:textColor="#000000" />
+
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="8.0dip"
+            app:cardElevation="2.0dip"
+            app:cardUseCompatPadding="true">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:ignore="MissingPrefix">
+
+                <LinearLayout
+                    android:id="@+id/card"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#000000"
+                    android:orientation="horizontal">
+
+
+                    <FrameLayout
+                        android:id="@+id/image_container"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0"
+                        android:paddingEnd="0dp"
+                        android:paddingLeft="16dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/shortname"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:minHeight="40dp"
+                            android:text="SN"
+                            android:textAppearance="@style/TextAppearanceList"
+                            android:textColor="#fff"
+                            android:textSize="20sp" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:id="@+id/title_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginTop="12dp"
+                        android:layout_weight="1.0"
+                        android:orientation="horizontal"
+                        android:paddingEnd="16dp"
+                        android:paddingStart="16dp">
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/name"
+                            style="@style/TextAppearance.AppCompat.Subhead"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:ellipsize="end"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:text="Full Name"
+                            android:textColor="#fff" />
+
+                        <android.support.v7.widget.AppCompatTextView
+                            android:id="@+id/handicap"
+                            style="@style/TextAppearance.AppCompat.Body1"
+                            android:layout_width="match_parent"
+                            android:layout_height="26dp"
+                            android:ellipsize="end"
+                            android:gravity="end|center"
+                            android:maxLines="1"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:text="subtitle"
+                            android:textColor="#fff" />
+                    </LinearLayout>
+                </LinearLayout>
+            </FrameLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/onTakeAttendance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_bg"
+        android:text="DONE"
+        android:textColor="#ffffff" />
+</android.support.design.widget.CoordinatorLayout>
