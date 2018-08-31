@@ -3,6 +3,13 @@
     <dimen name="header_text_size">22sp</dimen>
     <dimen name="content_text_size">16sp</dimen>
     <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="status_bar_padding">0dip</dimen>
+    <dimen name="text_margin">16dp</dimen>
     <dimen name="scoredialog">70sp</dimen>
+    <dimen name="tool_height">48dp</dimen>
     <dimen name="tool_exheight">256dp</dimen>
 </resources>

@@ -89,17 +89,33 @@ public class MainActivity extends AppCompatActivity {
 
         setUpToolbar();
 
+//        Common.trimCache(this);
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         refreshLayout();
 
-        mSwipeRefreshLayout.setOnRefreshListener(() -> refreshLayout());
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refreshLayout();
+            }
+        });
 
-        findViewById(R.id.recyclerRelative).getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+//        SQLiteDatabase readdatabase = DBHelper.dbHelper.getReadableDatabase();
+//        Cursor cursor = readdatabase.rawQuery("SELECT * FROM tbgolftournament", null);
+//        if (cursor.getCount() != 0) {
+//            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+//            dialog.setTitle("Warning");
+//            dialog.setMessage("Looks like you already have a game pending. If you click on the tournament again you can add people but you will lose your scoreboard");
+//            dialog.show();
+//        }
+
+        ((RelativeLayout) findViewById(R.id.recyclerRelative)).getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                findViewById(R.id.recyclerRelative).getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                TournamentAdapter.setParentIndex(findViewById(R.id.recyclerRelative).getHeight());
+                ((RelativeLayout) findViewById(R.id.recyclerRelative)).getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                TournamentAdapter.setParentIndex(((RelativeLayout) findViewById(R.id.recyclerRelative)).getHeight());
             }
         });
     }
@@ -185,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
             JSONArray score = new JSONArray(cursor.getString(cursor.getColumnIndex("scoreboard")));
 
             ArrayList<String> playerNamesTemp = new ArrayList<>();
-            Common.scoreBoard = new ScoreBoard(new ArrayList<>());
+            Common.scoreBoard = new ScoreBoard(new ArrayList<PlayerScore>());
 
             for (int i = 0; i < score.length(); i++) {
                 JSONObject ScoreofMember = (JSONObject) score.get(i);
@@ -228,14 +244,14 @@ public class MainActivity extends AppCompatActivity {
 
         if (Common.isNetworkAvailable(this)) {
 
-            Common.getTournaments(new Common.onGotJSON() {
+            Common.getTournaments(this, new Common.onGotJSON() {
 
                 @Override
                 public void gotJSON(final JSONArray jsonArray) {
                     Log.e("ARRAY",jsonArray.toString());
                     Common.tournaments = null;
 
-                    Common.getDate(new Common.onGotJSON() {
+                    Common.getDate(MainActivity.this, new Common.onGotJSON() {
                         @Override
                         public void gotJSON(JSONArray jsonArray) {
 

@@ -26,47 +26,53 @@ public class Splashscreen extends Activity {
 
         final ImageView image = findViewById(R.id.splashscreen);
 
-        image.post(() -> {
-            int cx = (int) ((image.getLeft() + image.getRight()) * Math.random());
-            int cy = (int) ((image.getTop() + image.getBottom()) * Math.random());
+        image.post(new Runnable() {
+            @Override
+            public void run() {
+                int cx = (int) ((image.getLeft() + image.getRight()) * Math.random());
+                int cy = (int) ((image.getTop() + image.getBottom()) * Math.random());
 
-            // get the final radius for the clipping circle
-            int dx = Math.max(cx, image.getWidth() - cx);
-            int dy = Math.max(cy, image.getHeight() - cy);
-            float finalRadius = (float) Math.hypot(dx, dy);
+                // get the final radius for the clipping circle
+                int dx = Math.max(cx, image.getWidth() - cx);
+                int dy = Math.max(cy, image.getHeight() - cy);
+                float finalRadius = (float) Math.hypot(dx, dy);
 
-            Animator animator = null;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                animator = ViewAnimationUtils.createCircularReveal(image, cx, cy, 0, finalRadius);
-                animator.setInterpolator(new AccelerateDecelerateInterpolator());
-                animator.setDuration(1000);
-                animator.addListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
+                Animator animator = null;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    animator = ViewAnimationUtils.createCircularReveal(image, cx, cy, 0, finalRadius);
+                    animator.setInterpolator(new AccelerateDecelerateInterpolator());
+                    animator.setDuration(1000);
+                    animator.addListener(new Animator.AnimatorListener() {
+                        @Override
+                        public void onAnimationStart(Animator animation) {
 
-                    }
+                        }
 
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        new Handler().postDelayed(() -> {
-                            /* Create an Intent that will start the Menu-Activity. */
-                            startActivity(new Intent(Splashscreen.this,MainActivity.class));
-                        }, SPLASH_DISPLAY_LENGTH);
-                    }
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            new Handler().postDelayed(new Runnable(){
+                                @Override
+                                public void run() {
+                                    /* Create an Intent that will start the Menu-Activity. */
+                                    startActivity(new Intent(Splashscreen.this,MainActivity.class));
+                                }
+                            }, SPLASH_DISPLAY_LENGTH);
+                        }
 
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
+                        @Override
+                        public void onAnimationCancel(Animator animation) {
 
-                    }
+                        }
 
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
+                        @Override
+                        public void onAnimationRepeat(Animator animation) {
 
-                    }
-                });
-                animator.start();
+                        }
+                    });
+                    animator.start();
+                }
+                image.setVisibility(View.VISIBLE);
             }
-            image.setVisibility(View.VISIBLE);
         });
     }
 }

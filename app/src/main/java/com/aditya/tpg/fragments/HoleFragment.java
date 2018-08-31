@@ -53,11 +53,11 @@ public class HoleFragment extends Fragment {
     public void onViewCreated(final View view, @Nullable Bundle savedInstanceState) {
         Typeface typefaceBold = TypefaceHelper.get(getContext(), getResources().getString(R.string.sans_bold));
 
-        view.findViewById(R.id.recycleRelative).getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        ((RelativeLayout) view.findViewById(R.id.recycleRelative)).getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                view.findViewById(R.id.recycleRelative).getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                mAdapter.setParentIndex(view.findViewById(R.id.recycleRelative).getHeight());
+                ((RelativeLayout) view.findViewById(R.id.recycleRelative)).getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                mAdapter.setParentIndex(((RelativeLayout) view.findViewById(R.id.recycleRelative)).getHeight());
             }
         });
 
@@ -89,4 +89,7 @@ public class HoleFragment extends Fragment {
         super.onResume();
     }
 
+    //    public interface OnButtonClickListener{
+//        void onButtonClicked(int index);
+//    }
 }

@@ -24,6 +24,10 @@ public class MemberData {
         return shortname;
     }
 
+    public void setShortName(String shortName) {
+        this.shortname = shortName;
+    }
+
     public String getName() {
         return name;
     }

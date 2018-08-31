@@ -101,14 +101,17 @@ public class SelectMembersActivity extends AppCompatActivity implements Material
 
         mRecyclerView.setAdapter(mAdapter);
 
-        findViewById(R.id.onTakeAttendance).setOnClickListener(v -> {
-            if (mAdapter.getSelectedList().size() < 1) {
-                Toast.makeText(SelectMembersActivity.this, "Select atleast 1 members to play", Toast.LENGTH_SHORT).show();
-            } else {
-                Common.playerNames = mAdapter.getSelectedList();
-                Intent i = new Intent(SelectMembersActivity.this, ScoreboardActivity.class);
-                startActivity(i);
-                overridePendingTransition(R.anim.slide_up, R.anim.stay);
+        ((Button) findViewById(R.id.onTakeAttendance)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mAdapter.getSelectedList().size() < 1) {
+                    Toast.makeText(SelectMembersActivity.this, "Select atleast 1 members to play", Toast.LENGTH_SHORT).show();
+                } else {
+                    Common.playerNames = mAdapter.getSelectedList();
+                    Intent i = new Intent(SelectMembersActivity.this, ScoreboardActivity.class);
+                    startActivity(i);
+                    overridePendingTransition(R.anim.slide_up, R.anim.stay);
+                }
             }
         });
 

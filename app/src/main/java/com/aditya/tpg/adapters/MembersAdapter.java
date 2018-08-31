@@ -81,13 +81,16 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.TakeAtte
             holder.shortname.setText(member.getShortName());
             holder.name.setText(member.getName());
 
-            holder.card.setOnClickListener(v -> {
-                if (checkList(member.getShortName()) == -1) {
-                    addToList(member.getShortName());
-                } else {
-                    removeFromList(member.getShortName());
+            holder.card.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (checkList(member.getShortName()) == -1) {
+                        addToList(member.getShortName());
+                    } else {
+                        removeFromList(member.getShortName());
+                    }
+                    notifyDataSetChanged();
                 }
-                notifyDataSetChanged();
             });
 
             if (checkList(member.getShortName()) != -1) {

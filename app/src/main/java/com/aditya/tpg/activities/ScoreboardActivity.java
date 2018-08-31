@@ -78,7 +78,19 @@ public class ScoreboardActivity extends AppCompatActivity {
         ((NestedScrollView) findViewById(R.id.nestedView)).setFillViewport(true);
 
         mToolbar = findViewById(R.id.toolbar);
-
+//
+//        for(int i = 0; i < mToolbar.getChildCount(); i++) {
+//            final View v = mToolbar.getChildAt(i);
+//
+//            //Step 1 : Changing the color of back button (or open drawer button).
+//            if (v instanceof ImageButton) {
+//                //Action Bar back button
+//                android.view.ViewGroup.LayoutParams params = ((ImageButton) v).getLayoutParams();
+//                params.height = 50;
+//                params.width = 50;
+//                ((ImageButton) v).setLayoutParams(params);
+//            }
+//        }
         setUpToolbar();
 
 
@@ -94,14 +106,19 @@ public class ScoreboardActivity extends AppCompatActivity {
 
         FloatingActionButton button = findViewById(R.id.done);
 
-        button.setOnClickListener(v -> onButtonClicked());
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onButtonClicked();
+            }
+        });
 
 
-        findViewById(R.id.recyclerRelative).getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+        ((RelativeLayout) findViewById(R.id.recyclerRelative)).getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                findViewById(R.id.recyclerRelative).getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                mAdapter.setParentIndex(findViewById(R.id.recycleRelative).getWidth());
+                ((RelativeLayout) findViewById(R.id.recyclerRelative)).getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                mAdapter.setParentIndex(((RelativeLayout) findViewById(R.id.recycleRelative)).getWidth());
             }
         });
     }
@@ -110,7 +127,7 @@ public class ScoreboardActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        mAdapter = new TotalAdapter(this, findViewById(R.id.recyclerRelative).getWidth());
+        mAdapter = new TotalAdapter(this, ((RelativeLayout) findViewById(R.id.recyclerRelative)).getWidth());
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -120,10 +137,10 @@ public class ScoreboardActivity extends AppCompatActivity {
         SQLiteDatabase readdatabase = DBHelper.dbHelper.getReadableDatabase();
         Cursor cursor = readdatabase.rawQuery("SELECT * FROM tbgolftournament", null);
         if (cursor.getCount() == 0) {
-            Common.scoreBoard = new ScoreBoard(new ArrayList<>());
+            Common.scoreBoard = new ScoreBoard(new ArrayList<PlayerScore>());
 
             for (String player : Common.playerNames) {
-                PlayerScore playerScore = new PlayerScore(player, new ArrayList<>());
+                PlayerScore playerScore = new PlayerScore(player, new ArrayList<Integer>());
                 playerScore.generateScore(holes);
                 Common.scoreBoard.Score.add(playerScore);
             }
@@ -310,12 +327,18 @@ public class ScoreboardActivity extends AppCompatActivity {
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Reset Score");
                 builder.setMessage("Are you sure you want to reset your score?");
-                builder.setPositiveButton("YES", (dialog, which) -> {
-                    finish();
-                    startActivity(new Intent(ScoreboardActivity.this, SelectMembersActivity.class));
+                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                        startActivity(new Intent(ScoreboardActivity.this, SelectMembersActivity.class));
+                    }
                 });
-                builder.setNegativeButton("NO", (dialog, which) -> {
+                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
 
+                    }
                 });
                 builder.show();
                 break;

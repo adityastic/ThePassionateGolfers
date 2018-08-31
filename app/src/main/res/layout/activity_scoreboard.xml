@@ -2,11 +2,43 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
 
+    <!--<android.support.design.widget.AppBarLayout-->
+    <!--android:id="@+id/app_bar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--app:layout_behavior="com.aditya.tpg.behavior.AppBarLayoutBehavior">-->
+
+    <!--<com.aditya.tpg.Views.SansFontCollapsingToolbarLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="96dp"-->
+    <!--app:collapsedTitleTextAppearance="@style/CollapsedTitleAppearance"-->
+    <!--app:expandedTitleGravity="top"-->
+    <!--app:expandedTitleMarginStart="16dp"-->
+    <!--app:expandedTitleMarginTop="48dp"-->
+    <!--app:expandedTitleTextAppearance="@style/ExpandedTitleAppearance"-->
+    <!--app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
+
+    <!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content" />-->
+
+    <!--<android.support.v7.widget.Toolbar-->
+    <!--android:id="@+id/toolbar"-->
+    <!--app:navigationIcon="@drawable/tpg_24dp"-->
+    <!--style="@style/Toolbar48"-->
+    <!--app:layout_collapseMode="pin" />-->
+
+    <!--</com.aditya.tpg.Views.SansFontCollapsingToolbarLayout>-->
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="0dp"

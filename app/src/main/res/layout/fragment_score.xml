@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/holesCard"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:cardCornerRadius="20dp"
@@ -126,6 +127,7 @@
                 android:orientation="horizontal">
 
                 <FrameLayout
+                    android:id="@+id/image_container"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -146,6 +148,7 @@
                 </FrameLayout>
 
                 <LinearLayout
+                    android:id="@+id/score_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
