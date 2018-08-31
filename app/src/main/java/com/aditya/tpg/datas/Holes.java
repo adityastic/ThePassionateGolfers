@@ -23,10 +23,6 @@ public class Holes {
         return strin;
     }
 
-    public void setStrin(int strin) {
-        this.strin = strin;
-    }
-
     @Override
     public String toString() {
 

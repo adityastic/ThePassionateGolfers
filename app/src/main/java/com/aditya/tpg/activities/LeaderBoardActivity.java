@@ -45,23 +45,13 @@ public class LeaderBoardActivity extends AppCompatActivity {
 
         refreshLayout();
 
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                refreshLayout();
-            }
-        });
+        mSwipeRefreshLayout.setOnRefreshListener(() -> refreshLayout());
     }
 
     private void setUpToolbar() {
         setTitle("Leaderboard");
         setSupportActionBar(mToolbar);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        mToolbar.setNavigationOnClickListener(v -> onBackPressed());
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
@@ -73,7 +63,7 @@ public class LeaderBoardActivity extends AppCompatActivity {
         mAdapter = null;
         mRecyclerView.setAdapter(null);
 
-        Common.getLeaderboard(this, new Common.onGotJSON() {
+        Common.getLeaderboard(new Common.onGotJSON() {
             @Override
             public void gotJSON(JSONArray jsonArray) throws JSONException {
                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -93,12 +83,7 @@ public class LeaderBoardActivity extends AppCompatActivity {
                         leaderlist.add(leaderInfo);
                 }
 
-                Collections.sort(leaderlist, new Comparator<LeaderInfo>() {
-                    @Override
-                    public int compare(LeaderInfo o1, LeaderInfo o2) {
-                        return o1.getTotal() - o2.getTotal();
-                    }
-                });
+                Collections.sort(leaderlist, (o1, o2) -> o1.getTotal() - o2.getTotal());
 
                 int ranking = 1;
                 for (int i = 0; i < leaderlist.size(); i++) {

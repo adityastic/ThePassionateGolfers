@@ -2,17 +2,13 @@ package com.aditya.tpg.adapters;
 
 import android.animation.Animator;
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -21,12 +17,10 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aditya.tpg.R;
-import com.aditya.tpg.activities.CourseInfoActivity;
 import com.aditya.tpg.activities.MainActivity;
 import com.aditya.tpg.activities.ScoreboardActivity;
 import com.aditya.tpg.activities.SelectMembersActivity;
@@ -36,11 +30,8 @@ import com.aditya.tpg.utils.sqlite.DBHelper;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-
-import static android.view.View.GONE;
 
 public class TournamentAdapter extends RecyclerView.Adapter<TournamentAdapter.TounamentAdapterHolder> {
 
@@ -178,26 +169,23 @@ public class TournamentAdapter extends RecyclerView.Adapter<TournamentAdapter.To
                     }
                     holder.image.setVisibility(View.VISIBLE);
                 } else {
-                    holder.image.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            int cx = (int) ((holder.image.getLeft() + holder.image.getRight()) * Math.random());
-                            int cy = (int) ((holder.image.getTop() + holder.image.getBottom()) * Math.random());
+                    holder.image.post(() -> {
+                        int cx = (int) ((holder.image.getLeft() + holder.image.getRight()) * Math.random());
+                        int cy = (int) ((holder.image.getTop() + holder.image.getBottom()) * Math.random());
 
-                            // get the final radius for the clipping circle
-                            int dx = Math.max(cx, holder.image.getWidth() - cx);
-                            int dy = Math.max(cy, holder.image.getHeight() - cy);
-                            float finalRadius = (float) Math.hypot(dx, dy);
+                        // get the final radius for the clipping circle
+                        int dx = Math.max(cx, holder.image.getWidth() - cx);
+                        int dy = Math.max(cy, holder.image.getHeight() - cy);
+                        float finalRadius = (float) Math.hypot(dx, dy);
 
-                            Animator animator = null;
-                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                                animator = ViewAnimationUtils.createCircularReveal(holder.image, cx, cy, 0, finalRadius);
-                                animator.setInterpolator(new AccelerateDecelerateInterpolator());
-                                animator.setDuration(850);
-                                animator.start();
-                            }
-                            holder.image.setVisibility(View.VISIBLE);
+                        Animator animator;
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                            animator = ViewAnimationUtils.createCircularReveal(holder.image, cx, cy, 0, finalRadius);
+                            animator.setInterpolator(new AccelerateDecelerateInterpolator());
+                            animator.setDuration(850);
+                            animator.start();
                         }
+                        holder.image.setVisibility(View.VISIBLE);
                     });
                 }
             }

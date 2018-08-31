@@ -31,13 +31,6 @@ public class CrashHandle extends Activity {
     Button logButton;
     @BindView(R.id.restart)
     Button restart;
-//
-//    public static final String[] SYSTEM_FAULT_EXCEPTIONS = {
-//            "null object reference",
-//            "null object",
-//            "not attached to Activity",
-//            "not attached"
-//    };
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -92,20 +85,20 @@ public class CrashHandle extends Activity {
         }
     }
 
-    public static boolean containsAny(String str, String[] words) {
-        boolean bResult = false; // will be set, if any of the words are found
-        //String[] words = {"word1", "word2", "word3", "word4", "word5"};
-
-        List<String> list = Arrays.asList(words);
-        for (String word : list) {
-            boolean bFound = str.contains(word);
-            if (bFound) {
-                bResult = bFound;
-                break;
-            }
-        }
-        return bResult;
-    }
+//    public static boolean containsAny(String str, String[] words) {
+//        boolean bResult = false; // will be set, if any of the words are found
+//        //String[] words = {"word1", "word2", "word3", "word4", "word5"};
+//
+//        List<String> list = Arrays.asList(words);
+//        for (String word : list) {
+//            boolean bFound = str.contains(word);
+//            if (bFound) {
+//                bResult = bFound;
+//                break;
+//            }
+//        }
+//        return bResult;
+//    }
 
     private String createErrorReport(Intent intent) {
         String versionName = Common.getAppVersion(this, getPackageName());

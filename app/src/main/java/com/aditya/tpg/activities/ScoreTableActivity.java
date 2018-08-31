@@ -79,13 +79,13 @@ public class ScoreTableActivity extends AppCompatActivity {
 
         recyclerScoreTable.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
 
-        ((LinearLayout) findViewById(R.id.card)).setBackground(getResources().getDrawable(R.drawable.black_score));
+        findViewById(R.id.card).setBackground(getResources().getDrawable(R.drawable.black_score));
 
         int margin = dp2px(getResources(), 5);
 
-        RelativeLayout.LayoutParams cardla = (RelativeLayout.LayoutParams) ((LinearLayout) findViewById(R.id.card)).getLayoutParams();
+        RelativeLayout.LayoutParams cardla = (RelativeLayout.LayoutParams) findViewById(R.id.card).getLayoutParams();
         cardla.setMargins(margin, margin, margin, margin);
-        ((LinearLayout) findViewById(R.id.card)).setLayoutParams(cardla);
+        findViewById(R.id.card).setLayoutParams(cardla);
 
         hole.setTextColor(Color.parseColor("#ffffff"));
         par.setTextColor(Color.parseColor("#ffffff"));
@@ -120,12 +120,7 @@ public class ScoreTableActivity extends AppCompatActivity {
     private void setUpToolbar() {
         setTitle("Score Table");
         setSupportActionBar(mToolbar);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        mToolbar.setNavigationOnClickListener(v -> onBackPressed());
         //noinspection ConstantConditions
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

@@ -73,10 +73,6 @@ public class Tournament {
         return course;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
     public ArrayList<MemberData> getMembers() {
         Collections.sort(members, new Comparator<MemberData>() {
             @Override
@@ -85,10 +81,6 @@ public class Tournament {
             }
         });
         return members;
-    }
-
-    public void setMembers(ArrayList<MemberData> members) {
-        this.members = members;
     }
 
     public String getGTMembers() {

@@ -236,9 +236,6 @@ public class ScoreTableAdapter extends RecyclerView.Adapter<ScoreTableAdapter.Sc
 
             holder.par.setTextColor(context.getResources().getColor(R.color.colorAccent));
             holder.holeno.setTextColor(Color.parseColor("#909090"));
-//            SpannableString content = new SpannableString(holder.holeno.getText().toString());
-//            content.setSpan(new UnderlineSpan(), 0, holder.holeno.getText().toString().length(), 0);
-//            holder.holeno.setText(content);
 
             int par = Integer.parseInt(holder.par.getText().toString());
 

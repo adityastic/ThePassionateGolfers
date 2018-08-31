@@ -7,22 +7,10 @@
     android:background="@color/bg"
     tools:context=".activities.MainActivity">
 
-
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_behavior="com.aditya.tpg.behavior.AppBarLayoutBehavior">
-
-        <!--<com.aditya.tpg.Views.SansFontCollapsingToolbarLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="96dp"-->
-        <!--app:collapsedTitleTextAppearance="@style/CollapsedTitleAppearance"-->
-        <!--app:expandedTitleGravity="top"-->
-        <!--app:expandedTitleMarginStart="16dp"-->
-        <!--app:expandedTitleMarginTop="48dp"-->
-        <!--app:expandedTitleTextAppearance="@style/ExpandedTitleAppearance"-->
-        <!--app:layout_scrollFlags="scroll|exitUntilCollapsed">-->
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -43,7 +31,6 @@
                     android:src="@drawable/tpg" />
 
                 <TextView
-                    android:id="@+id/Title"
                     style="@style/MainToolbarTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -59,7 +46,6 @@
                     android:text="Score Capture" />
             </LinearLayout>
         </android.support.v7.widget.Toolbar>
-        <!--</com.aditya.tpg.Views.SansFontCollapsingToolbarLayout>-->
     </android.support.design.widget.AppBarLayout>
 
     <RelativeLayout

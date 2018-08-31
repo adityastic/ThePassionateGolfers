@@ -12,7 +12,6 @@ import android.widget.Scroller;
 import java.lang.reflect.Field;
 
 public class CustomViewpager extends ViewPager implements ViewPager.PageTransformer {
-    public static final String TAG = "CustomViewpager";
     private float MAX_SCALE = 0.0f;
     private int mPageMargin;
     private boolean animationEnabled=true;
@@ -52,10 +51,6 @@ public class CustomViewpager extends ViewPager implements ViewPager.PageTransfor
         mPageMargin = dp2px(context.getResources(), 40);
         setPadding(mPageMargin, mPageMargin/4, mPageMargin, mPageMargin/4);
         init();
-    }
-
-    public void setScrollDuration(int duration) {
-        mScroller.setScrollDuration(duration);
     }
 
     public int dp2px(Resources resource, int dp) {

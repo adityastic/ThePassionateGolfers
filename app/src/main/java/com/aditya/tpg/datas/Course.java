@@ -40,18 +40,6 @@ public class Course {
         return desc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public ArrayList<Holes> getHoles() {
         return holes;
     }
