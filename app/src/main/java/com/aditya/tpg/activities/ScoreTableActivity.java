@@ -3,35 +3,25 @@ package com.aditya.tpg.activities;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
+
 import android.util.TypedValue;
-import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.aditya.tpg.R;
-import com.aditya.tpg.adapters.LeaderAdapter;
 import com.aditya.tpg.adapters.ScoreTableAdapter;
 import com.aditya.tpg.adapters.ScoreTableItemAdapter;
-import com.aditya.tpg.datas.LeaderInfo;
 import com.aditya.tpg.datas.PlayerScore;
 import com.aditya.tpg.utils.Common;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 import static com.aditya.tpg.adapters.ScoreTableAdapter.done;
 

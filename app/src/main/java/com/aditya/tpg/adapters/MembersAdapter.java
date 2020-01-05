@@ -2,9 +2,9 @@ package com.aditya.tpg.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +16,6 @@ import com.aditya.tpg.R;
 import com.aditya.tpg.datas.MemberData;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by bhupendrabanothe on 12/03/2018 AD.

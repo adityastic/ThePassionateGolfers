@@ -28,7 +28,7 @@
                     android:layout_gravity="center"
                     android:orientation="vertical">
 
-                    <android.support.v7.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/holes"
                         android:layout_width="65dp"
                         android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
                         android:scaleType="fitCenter"
                         android:src="@drawable/ic_square_fill" />
 
-                    <android.support.v7.widget.AppCompatTextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/par"
                         android:layout_width="45dp"
                         android:layout_height="wrap_content"
@@ -76,12 +76,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerscoreitem"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                </android.support.v7.widget.RecyclerView>
+                </androidx.recyclerview.widget.RecyclerView>
             </RelativeLayout>
         </LinearLayout>
     </RelativeLayout>

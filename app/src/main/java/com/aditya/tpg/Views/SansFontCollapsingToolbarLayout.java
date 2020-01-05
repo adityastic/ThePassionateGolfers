@@ -2,7 +2,7 @@ package com.aditya.tpg.Views;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.support.design.widget.CollapsingToolbarLayout;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import android.util.AttributeSet;
 
 import com.aditya.tpg.R;

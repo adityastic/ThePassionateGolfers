@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -27,7 +27,7 @@
                 android:paddingEnd="0dp"
                 android:paddingLeft="16dp">
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/shortname"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
@@ -52,7 +52,7 @@
                 android:paddingEnd="16dp"
                 android:paddingStart="16dp">
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/name"
                     style="@style/TextAppearance.AppCompat.Subhead"
                     android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
                     android:maxLines="1"
                     android:text="Title" />
 
-                <android.support.v7.widget.AppCompatTextView
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/handicap"
                     style="@style/TextAppearance.AppCompat.Body1"
                     android:layout_width="match_parent"
@@ -74,4 +74,4 @@
             </LinearLayout>
         </LinearLayout>
     </FrameLayout>
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>
