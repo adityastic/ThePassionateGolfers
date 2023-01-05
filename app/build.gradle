@@ -51,7 +51,7 @@ dependencies {
     implementation 'biz.borealis.numberpicker:NumberPicker:1.0.1'
 
     // Custom Crash Activity
-    implementation 'cat.ereza:customactivityoncrash:2.3.0'
+    implementation 'cat.ereza:customactivityoncrash:2.4.0'
 
     // Butter Knife
     implementation 'com.jakewharton:butterknife:10.2.3'
